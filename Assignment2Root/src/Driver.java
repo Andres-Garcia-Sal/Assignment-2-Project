@@ -9,7 +9,7 @@ public class Driver {
         // Check if data is not empty before printing
         
         if (!data.isEmpty()) {
-        	for(int i = 0; i < 41; i++) {
+        	for(int i = 0; i < data.size(); i++) {
         		System.out.println(Arrays.toString(data.get(i)));
         	}
             System.out.println("Total number of products: " + manage.countProduct());

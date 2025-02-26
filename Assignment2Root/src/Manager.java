@@ -9,7 +9,7 @@ public class Manager {
         try {
             br = new BufferedReader(new FileReader(filePath));
             String line;
-            while ((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null && !line.isEmpty()) {
                 String[] values = line.split(",");
                 insertData.add(values);
             }
