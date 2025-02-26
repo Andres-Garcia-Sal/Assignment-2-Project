@@ -2,9 +2,9 @@ import java.util.*;
 import java.io.*;
 
 public class Manager {
-	  private List<String[]> insertData = new ArrayList<>();
+	  private ArrayList<String[]> insertData = new ArrayList<>();
 	  
-    public List<String[]> loadData(String filePath) {
+    public ArrayList<String[]> loadData(String filePath) {
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(filePath));
@@ -26,8 +26,32 @@ public class Manager {
         }
         return insertData;
     }
-    
-    public int countProduct() {
+    public ArrayList<Product> inventory = new ArrayList<>();
+    public void createInventory(){
+			for(String[] str : insertData){
+				switch (str[1]) {
+					case "Movie":
+						inventory.add(new Movie(Integer.parseInt(str[0]), str[1] ,str[2], Integer.parseInt(str[3]) , str[4], str[5], str[6], Integer.parseInt(str[7]), str[8]));
+						                     //(int ID, String type, String title, int releaseYear, String Director, String Country, String rating, int minDuration, String description)
+						break;
+					case "Music Album":
+					inventory.add(new Music(Integer.parseInt(str[0]), str[1] ,str[2], Integer.parseInt(str[3]) , str[4], Integer.parseInt(str[5]), Integer.parseInt(str[6]), Double.parseDouble(str[7]), str[8]));
+					                //Music(int ID, String type, String title, int releaseYear,String artist, int globalSales, int trackNum, double duration, String genre)
+						break;
+					case "TV Show":
+					inventory.add(new TvShow(Integer.parseInt(str[0]), str[1] ,str[2], Integer.parseInt(str[3]) , str[4], str[5], str[6], str[7], str[8]));						
+					                //TvShow(int ID, String type, String title, int releaseYear,String director, String Country, String ratingTv, String seasonNum, String description)
+						break;
+					case "Video Game":
+					inventory.add(new VideoGames(Integer.parseInt(str[0]), str[1] ,str[2], Integer.parseInt(str[3]) , str[4], str[5], str[6], Double.parseDouble(str[8])));			
+					                //VideoGames(int ID, String type, String title, int releaseYear,String platform, String genre, String publisher, double copySold)						
+						break;				
+					default:
+						break;
+				}
+			}
+		}
+		public int countProduct() {
     	return insertData.size();
     }
     public int countMovies() {
