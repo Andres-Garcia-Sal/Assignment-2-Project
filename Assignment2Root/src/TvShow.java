@@ -6,7 +6,7 @@ public class TvShow extends Product {
 	private String seasonNum;
 	private String description;
 	
-	public TvShow(int ID, String type, String title, int releaseYear,String director, String Country, String ratingTv, String seasonNum, String description) {
+	public TvShow(int ID, String type, String title, String director, String Country,int releaseYear, String ratingTv, String seasonNum, String description) {
 		super(ID,type,title,releaseYear);
 		this.director = director;
 		this.Country = Country;
@@ -16,23 +16,23 @@ public class TvShow extends Product {
 	}
 
 	public String getDirector() {
-		return director;
+		return this.director;
 	}
 	
 	public String getCountry() {
-		return Country;
+		return this.Country;
 	}
 	
 	public String getRatings() {
-		return ratingTv;
+		return this.ratingTv;
 	}
 	
 	public String getSeasonNum() {
-		return seasonNum;
+		return this.seasonNum;
 	}
 	
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
 	
 }

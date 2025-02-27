@@ -1,9 +1,9 @@
 
 public class Product {
-	private int ID;
-	private String type;
-	private String title;
-	private int releaseYear;
+	protected int ID;
+	protected String type;
+	protected String title;
+	protected int releaseYear;
 	
 	public Product(int ID,String type, String title, int releaseYear) {
 		this.ID = ID;
@@ -13,19 +13,19 @@ public class Product {
 	}
 	
 	public int getID() {
-		return ID;
+		return this.ID;
 	}
 
 	public String getType() {
-		return type;
+		return this.type;
 	}
 	
 	public String getTitle() {
-		return title;
+		return this.title;
 	}
 	
 	public int getYear() {
-		return releaseYear;
+		return this.releaseYear;
 	}
 	
 }

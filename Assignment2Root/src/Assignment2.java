@@ -12,11 +12,13 @@ public class Assignment2 {
         	for(int i = 0; i < data.size(); i++) {
         		System.out.println(Arrays.toString(data.get(i)));
         	}
+            manage.createInventory();
             System.out.println("Total number of products: " + manage.countProduct());
             System.out.println("Total number of Movies: " + manage.countMovies());
             System.out.println("Total number of Video Games: " + manage.countGames());
             System.out.println("Total number of Music Albums: " + manage.countMusic());
             System.out.println("Total number of TV Shows: " + manage.countShows());
+			System.out.println("Oldest Product: " + manage.oldProduct());
             
             }
         else {
@@ -25,7 +27,6 @@ public class Assignment2 {
     }
 }
 			/*
-			System.out.println("Oldest Product: " + manage.oldProduct);
 			System.out.println("Popular Music Album: " + manage.popMusic);
 			System.out.println("Popular Video Game: " + manage.popGame);
 			System.out.println("Common Rating: " + manage.commonRate);

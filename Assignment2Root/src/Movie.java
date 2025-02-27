@@ -6,7 +6,7 @@ public class Movie extends Product {
 	private int minDuration;
 	private String description;
 	
-	public Movie(int ID, String type, String title, int releaseYear, String Director, String Country, String rating, int minDuration, String description) {
+	public Movie(int ID, String type, String title, String Director, String Country, int releaseYear,  String rating, int minDuration, String description) {
 		super(ID,type,title,releaseYear);
 		this.Director = Director;
 		this.Country = Country;
@@ -16,25 +16,25 @@ public class Movie extends Product {
 	}
 	
 	public String getDirector() {
-		return Director;
+		return this.Director;
 	}
 	
 	
 	public String getCountry() {
-		return Country;
+		return this.Country;
 	}
 	
 	
 	public String getRating() {
-		return rating;
+		return this.rating;
 	}
 	
 	public int getDuration() {
-		return minDuration;
+		return this.minDuration;
 	}
 	
 	public String getDescription() {
-		return description;
+		return this.description;
 	}
 	
 }
