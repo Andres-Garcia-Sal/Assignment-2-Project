@@ -19,7 +19,11 @@ public class Assignment2 {
             System.out.println("Total number of Music Albums: " + manage.countMusic());
             System.out.println("Total number of TV Shows: " + manage.countShows());
 			System.out.println("Oldest Product: " + manage.oldProduct());
-            
+            System.out.println("Popular Music Album: " + manage.popMusic());
+			System.out.println("Popular Video Game: " + manage.popGame());
+			System.out.println("Common Rating: " + manage.commonRate());
+			System.out.println("Shortest Movie: " + manage.shortMovie());
+			System.out.println("Shortest Music Album: " + manage.shortAlbum());
             }
         else {
             System.out.println("No data found.");
@@ -27,11 +31,7 @@ public class Assignment2 {
     }
 }
 			/*
-			System.out.println("Popular Music Album: " + manage.popMusic);
-			System.out.println("Popular Video Game: " + manage.popGame);
-			System.out.println("Common Rating: " + manage.commonRate);
-			System.out.println("Shortest Movie: " + manage.shortMovie);
-			System.out.println("Shortest Music Album: " + manage.shortAlbum);
+			
 			*/
 		
 	

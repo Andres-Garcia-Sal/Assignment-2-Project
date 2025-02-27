@@ -23,7 +23,7 @@ public class TvShow extends Product {
 		return this.Country;
 	}
 	
-	public String getRatings() {
+	public String getRating() {
 		return this.ratingTv;
 	}
 	

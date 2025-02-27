@@ -28,7 +28,7 @@ public class VideoGames extends Product{
 	}
 	
 	
-	public double getCopySold () {
+	public double getCopySold() {
 		return this.copySold;
 	}
 	

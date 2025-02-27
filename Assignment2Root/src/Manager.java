@@ -104,16 +104,142 @@ public class Manager {
 			int releaseYr=2025; 
 
 			for(Product p : inventory){
-				System.out.println(""+ p + p.getYear());
 				if(p.getYear() < releaseYr){
 					releaseYr=p.getYear();
-					titleAndReleaseYr = p.getTitle() + "is the oldest product, released in" + releaseYr;
-					System.out.println("DEBUG: titleAndReleaseYr updated to " + titleAndReleaseYr);
+					titleAndReleaseYr = p.getTitle() + "is the oldest product, released in " + releaseYr;
 				}
 			}
 			return titleAndReleaseYr;
 		}
+
+		public String popMusic(){
+			String titleAndSales="";
+			int maxSales=0;
+			for(Product p : inventory){
+				if(p instanceof Music){
+				Music m = (Music) p;
+					if(m.getGlobalSale()>maxSales){
+						maxSales=m.getGlobalSale();
+						titleAndSales=m.getTitle() + " by " + m.getArtist() + " is the most sold music album on the inventory, with " + maxSales + " sales globally.";
+					}
+				}
+			}
+			return titleAndSales;
+		}
+
+		public String popGame(){
+			String titleAndSales = "";
+			double maxSales=0;
+			for(Product p : inventory){
+				if(p instanceof VideoGames){
+				VideoGames v = (VideoGames) p;
+					if(v.getCopySold()>maxSales){
+						maxSales=v.getCopySold();
+						titleAndSales= v.getTitle() + ", published by " + v.getPublish() + " for the "+ v.getPlatform() +" is the most sold videogame on the inventory, with " + maxSales + " million sales globally.";
+					}
+				}
+			}
+			return titleAndSales;
+		}
+
+		public String commonRate(){
+			String result = "";
+			int PG13Count=0;
+			int TVMACount=0;
+			int TV14Count=0;
+			int TVPGCount=0;
+			int TVY7Count=0;
+
+
+			
+			for(Product p : inventory){
+				if(p instanceof TvShow){
+					TvShow t = (TvShow) p;
+					switch (t.getRating()) {
+						case "PG-13":
+							PG13Count++;
+							break;
+						case "TV-MA":
+							TVMACount++;
+							break;
+						case "TV-14":
+							TV14Count++;
+							break;
+						case "TV-PG":
+							TVPGCount++;
+							break;
+						case "TV-Y7":
+							TVY7Count++;
+							break;
+						default:
+							break;
+					}
+				}else	if(p instanceof Movie){
+					Movie m = (Movie) p;
+					switch (m.getRating()) {
+						case "PG-13":
+							PG13Count++;
+							break;
+						case "TV-MA":
+							TVMACount++;
+							break;
+						case "TV-14":
+							TV14Count++;
+							break;
+						case "TV-PG":
+							TVPGCount++;
+							break;
+						case "TV-Y7":
+							TVY7Count++;
+							break;
+						default:
+							break;
+					}
+				}
+				if(PG13Count>=TVMACount&&PG13Count>=TV14Count&&PG13Count>=TVPGCount&&PG13Count>=TVY7Count){
+					result = "PG-13 is the most frequent age rating in movies and TV shows in our inventory. Our inventory has "+PG13Count;
+				} else if(TVMACount>=PG13Count&&TVMACount>=TV14Count&&TVMACount>=TVPGCount&&TVMACount>=TVY7Count){
+					result = "TV-MA is the most frequent age rating in movies and TV shows in our inventory. Our inventory has "+TVMACount;
+				} else if(TV14Count>=PG13Count&&TV14Count>=TVMACount&&TV14Count>=TVY7Count&&TV14Count>=TVPGCount){
+					result = "TV-14 is the most frequent age rating in movies and TV shows in our inventory. Our inventory has "+TV14Count;
+				} else if(TVPGCount>=PG13Count&&TVPGCount>=TVMACount&&TVPGCount>=TVY7Count&&TVPGCount>=TV14Count){
+					result = "TV-14 is the most frequent age rating in movies and TV shows in our inventory. Our inventory has "+TV14Count;
+				} else if(TVY7Count>=PG13Count&&TVY7Count>=TVMACount&&TVY7Count>=TVPGCount&&TVY7Count>=TV14Count){
+					result = "TV-14 is the most frequent age rating in movies and TV shows in our inventory. Our inventory has "+TV14Count;
+				}
+		}
+			return result;
+	}
+	public String shortMovie(){
+		int currMinDuration = 500;
+		String result = "";
+			for(Product p : inventory){
+				if(p instanceof Movie){
+					Movie m = (Movie) p;
+					if(m.getDuration()<currMinDuration){
+						currMinDuration = m.getDuration();
+						result = m.getTitle() + " is the shortest movie in our inventory, with a runtime of "+currMinDuration+" minutes.";
+					}
+				}
+			}
+			return result;
+	}
+	public String shortAlbum(){
+		double currMinDuration = 5000.0;
+		String result = "";
+			for(Product p : inventory){
+				if(p instanceof Music){
+					Music m = (Music) p;
+					if(m.getDuration()<currMinDuration){
+						currMinDuration = m.getDuration();
+						result = m.getTitle() + " by "+ m.getArtist() +" is the shortest music album in our inventory, with a duration of "+currMinDuration+" minutes.";
+					}
+				}
+			}
+			return result;
+	}
 }
+		
 	/*
 	
 	//Create different functions for the call in the Driver
